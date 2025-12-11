@@ -1,0 +1,94 @@
+[
+  {
+    "id": "torino_weekend",
+    "name": "Weekend Pass",
+    "city": "Torino",
+    "price": 9.90,
+    "duration": "48h",
+    "includes": [
+      "2 riscatti in città",
+      "Badge locale",
+      "Reward locale (solo città del pass)"
+    ],
+    "tier": "base"
+  },
+  {
+    "id": "torino_lite",
+    "name": "Lite Pass",
+    "city": "Torino",
+    "price": 6.90,
+    "duration": "24h",
+    "includes": [
+      "1 riscatto in città",
+      "Badge locale"
+    ],
+    "tier": "base"
+  },
+  {
+    "id": "milano_weekend",
+    "name": "Weekend Pass",
+    "city": "Milano",
+    "price": 11.90,
+    "duration": "48h",
+    "includes": [
+      "2 riscatti in città",
+      "Badge locale",
+      "Reward locale (solo città del pass)"
+    ],
+    "tier": "base"
+  },
+  {
+    "id": "praga_weekend",
+    "name": "Weekend Pass",
+    "city": "Praga",
+    "price": 10.90,
+    "duration": "48h",
+    "includes": [
+      "2 riscatti in città",
+      "Badge locale",
+      "Reward locale (solo città del pass)"
+    ],
+    "tier": "base"
+  },
+  {
+    "id": "berlino_weekend",
+    "name": "Weekend Pass",
+    "city": "Berlino",
+    "price": 12.90,
+    "duration": "48h",
+    "includes": [
+      "2 riscatti in città",
+      "Badge locale",
+      "Reward locale (solo città del pass)"
+    ],
+    "tier": "base"
+  },
+
+  {
+    "id": "premium_cityplus",
+    "name": "City+ Pass",
+    "city": "EUROPA",
+    "price": 24.90,
+    "duration": "14 giorni",
+    "includes": [
+      "Riscatti in tutte le città LIVE",
+      "Badge globali",
+      "Reward GLOBALI (usabili ovunque)"
+    ],
+    "tier": "premium"
+  },
+  {
+    "id": "premium_europe",
+    "name": "Premium Europe Pass",
+    "city": "EUROPA",
+    "price": 39.90,
+    "duration": "30 giorni",
+    "includes": [
+      "Riscatti in tutte le città",
+      "Badge globali",
+      "Reward GLOBALI (usabili ovunque)",
+      "Accesso anticipato nuove città"
+    ],
+    "tier": "premium"
+  }
+]

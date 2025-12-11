@@ -1,0 +1,8 @@
+[
+  { "name": "Torino", "status": "live" },
+  { "name": "Milano", "status": "live" },
+  { "name": "Praga", "status": "live" },
+  { "name": "Berlino", "status": "live" },
+  { "name": "Barcellona", "status": "coming_soon" },
+  { "name": "Londra", "status": "coming_soon" }
+]
