@@ -425,25 +425,23 @@ button{
 .city-status{
   font-size:11px; font-weight:900; padding:4px 8px; border-radius:999px;
 }
-.city-status.live{background:rgba(34,197,94,0.15); color:#22c55e; border:1px solid rgba(34,197,94,0.4);}
-.city-status.soon{background:rgba(245,158,11,0.12); color:var(--beer-gold); border:1px solid rgba(245,158,11,0.35);}
+.city-status.live{background:rgba(187,247,208,1); color:#166534; border:1px solid rgba(34,197,94,0.4);}
+.city-status.soon{background:rgba(254,243,199,1); color:#92400e; border:1px solid rgba(245,158,11,0.35);}
 .city-counts{display:flex; justify-content:space-between; font-size:13px; margin:6px 0 10px;}
-
-/* partner */
 .badge{
   display:inline-block;
-  font-size:11px; font-weight:900;
+  font-size:11px; font-weight:900; /* è bold, quindi 3:1 */
   padding:4px 8px; border-radius:999px;
-  background:rgba(167,139,250,0.15);
+  background:rgba(221,214,254,1); /* sfondo più chiaro */
   border:1px solid rgba(167,139,250,0.4);
-  color:#c4b5fd;
+  color:#5b21b6; /* viola scuro */
 }
 .area-chip{
-  font-size:11px; font-weight:900;
+  font-size:11px; font-weight:900; /* è bold, quindi 3:1 */
   padding:4px 8px; border-radius:999px;
-  background:rgba(56,189,248,0.12);
+  background:rgba(224,242,254,1); /* sfondo più chiaro */
   border:1px solid rgba(56,189,248,0.35);
-  color:#7dd3fc;
+  color:#0c4a6e; /* blu scuro */
   margin-left:6px;
 }
 
@@ -694,9 +692,9 @@ button{
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:.6px;
-  background:rgba(34,197,94,0.18);
+  background:rgba(187,247,208,1); /* sfondo più chiaro e opaco */
   border:1px solid rgba(34,197,94,0.5);
-  color:#bbf7d0;
+  color:#166534; /* testo verde scuro */
 }
 .coin-shop-footer{
   font-size:11px;
@@ -828,3 +826,53 @@ button{
   pointer-events:none;
   animation:coinFly 0.8s ease-out forwards;
 }
+
+/* ==========================
+   FIX DROPDOWN OVERLAY
+   ========================== */
+
+/* quando un dropdown è aperto deve stare sopra tutto */
+.dd.open{
+  position: relative;
+  z-index: 9999;
+}
+
+
+
+/* la card dei filtri sopra la griglia risultati */
+.filters-card{
+  position: relative;
+  z-index: 9000;
+}
+
+/* ==========================
+   GLOBAL BOTTOM NAV
+   ========================== */
+.nav-bar{
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 20000;
+  pointer-events: none;
+}
+.nav-bar .nav-btn{
+  pointer-events: auto;
+  flex: 1;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 900;
+  border: 1px solid var(--border);
+  background: rgba(17,24,39,0.85);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+.nav-bar .nav-btn.primaryish{
+  background: rgba(56,189,248,0.14);
+  border-color: rgba(56,189,248,0.55);
+}
+.nav-bar.hidden{ display:none; }
