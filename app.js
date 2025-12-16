@@ -104,7 +104,8 @@ function getDemoCities() {
 
 // ==================== NAVIGATION ====================
 function navigateTo(page, payload = null) {
-  
+  const currentScreenLocal = page;
+  const currentScreenPayloadLocal = payload;
   
   switch(page) {
     case "home": mostraHome(); break;
