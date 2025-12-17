@@ -2,273 +2,45 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Beer Pass Europe</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" href="style.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-  
-  <!-- Header -->
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">🍺</div>
-      <div>
-        <div class="brand-title">Beer Pass Europe</div>
-        <div class="brand-sub">Drink • Discover • Repeat</div>
-      </div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">🍺</div>
+    <div>
+      <div class="brand-title">Beer Pass Europe</div>
+      <div class="brand-sub" id="brandSub"></div>
     </div>
-
-    <div class="top-actions">
-      <div id="userGreeting" class="user-greeting"></div>
-      
-      <div id="coinHeader" class="coin-header-pill">
-        <span class="coin-icon">💰</span>
-        <span id="coinHeaderValue">0</span>
-      </div>
-
-      <button id="coinBtn" class="coin-btn" title="Coin Shop">Shop</button>
-      <button id="langBtn" class="lang-btn" title="Lingua">🌍</button>
-    </div>
-  </header>
-
-  <!-- Language Bar (hidden by default) -->
-  <div id="langBar" class="lang-bar hidden"></div>
-
-  <!-- Pass Status -->
-  <div id="passStatus" class="pass-status"></div>
-
-  <!-- Main Content -->
-  <main id="app" class="app">
-    
-    <!-- Home Page (default view) -->
-    <section id="homePage" class="page-view active">
-      <div class="hero-section">
-        <h1>Benvenuto in Beer Pass Europe! 🍻</h1>
-        <p>Scopri i migliori locali, accumula monete e goditi la tua birra preferita</p>
-      </div>
-
-      <div class="quick-stats">
-        <div class="stat-card">
-          <div class="stat-icon">🎫</div>
-          <div class="stat-value" id="statPasses">0</div>
-          <div class="stat-label">Pass Attivi</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">🍺</div>
-          <div class="stat-value" id="statBeers">0</div>
-          <div class="stat-label">Birre Riscattate</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">⭐</div>
-          <div class="stat-value" id="statReviews">0</div>
-          <div class="stat-label">Recensioni</div>
-        </div>
-      </div>
-
-      <div class="category-grid">
-        <div class="category-card" data-page="partners">
-          <div class="category-icon">🏪</div>
-          <h3>Locali Partner</h3>
-          <p>Scopri dove usare il tuo pass</p>
-        </div>
-
-        <div class="category-card" data-page="qr">
-          <div class="category-icon">📱</div>
-          <h3>Il Mio QR</h3>
-          <p>Mostra il codice per riscattare</p>
-        </div>
-
-        <div class="category-card" data-page="passes">
-          <div class="category-icon">🎫</div>
-          <h3>I Miei Pass</h3>
-          <p>Gestisci i tuoi abbonamenti</p>
-        </div>
-
-        <div class="category-card" data-page="shop">
-          <div class="category-icon">🛒</div>
-          <h3>Coin Shop</h3>
-          <p>Acquista con le tue monete</p>
-        </div>
-
-        <div class="category-card" data-page="redemption">
-          <div class="category-icon">✅</div>
-          <h3>Riscatti</h3>
-          <p>Storico delle tue birre</p>
-        </div>
-
-        <div class="category-card" data-page="reviews">
-          <div class="category-icon">⭐</div>
-          <h3>Recensioni</h3>
-          <p>Valuta i locali visitati</p>
-        </div>
-
-        <div class="category-card" data-page="cities">
-          <div class="category-icon">🌍</div>
-          <h3>Città</h3>
-          <p>Esplora dove siamo presenti</p>
-        </div>
-
-        <div class="category-card" data-page="profile">
-          <div class="category-icon">👤</div>
-          <h3>Profilo</h3>
-          <p>Le tue informazioni</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partners Page -->
-    <section id="partnersPage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>Locali Partner</h2>
-      </div>
-      <div id="partnersContent"></div>
-    </section>
-
-    <!-- QR Page -->
-    <section id="qrPage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>Il Mio QR Code</h2>
-      </div>
-      <div id="qrContent"></div>
-    </section>
-
-    <!-- Passes Page -->
-    <section id="passesPage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>I Miei Pass</h2>
-      </div>
-      <div id="passesContent"></div>
-    </section>
-
-    <!-- Shop Page -->
-    <section id="shopPage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>Coin Shop</h2>
-      </div>
-      <div id="shopContent"></div>
-    </section>
-
-    <!-- Redemption Page -->
-    <section id="redemptionPage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>Storico Riscatti</h2>
-      </div>
-      <div id="redemptionContent"></div>
-    </section>
-
-    <!-- Reviews Page -->
-    <section id="reviewsPage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>Le Mie Recensioni</h2>
-      </div>
-      <div id="reviewsContent"></div>
-    </section>
-
-    <!-- Cities Page -->
-    <section id="citiesPage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>Città Disponibili</h2>
-      </div>
-      <div id="citiesContent"></div>
-    </section>
-
-    <!-- Profile Page -->
-    <section id="profilePage" class="page-view">
-      <div class="page-header">
-        <button class="back-btn" onclick="showPage('home')">← Indietro</button>
-        <h2>Il Mio Profilo</h2>
-      </div>
-      <div id="profileContent"></div>
-    </section>
-
-  </main>
-
-  <!-- Navigation Bar -->
-  <div id="navBar" class="nav-bar">
-    <button class="nav-btn active" data-page="home">
-      <span class="nav-icon">🏠</span>
-      <span class="nav-label">Home</span>
-    </button>
-    <button class="nav-btn" data-page="partners">
-      <span class="nav-icon">🏪</span>
-      <span class="nav-label">Locali</span>
-    </button>
-    <button class="nav-btn" data-page="qr">
-      <span class="nav-icon">📱</span>
-      <span class="nav-label">QR Code</span>
-    </button>
-    <button class="nav-btn" data-page="profile">
-      <span class="nav-icon">👤</span>
-      <span class="nav-label">Profilo</span>
-    </button>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/utils.js"></script>
-  <script src="js/userState.js"></script>
-  <script src="js/partners.js"></script>
-  <script src="js/redemption.js"></script>
-  <script src="js/reviews.js"></script>
-  <script src="js/shop.js"></script>
-  <script src="js/qr.js"></script>
-  <script src="js/app.js"></script>
+  <div class="top-actions">
+    <div class="coin-header-pill">
+      💰 <span id="coinHeaderValue">0</span>
+    </div>
+    <button id="shopBtn" class="coin-btn">Shop</button>
+    <button id="langBtn" class="lang-btn">🌍</button>
+  </div>
+</header>
 
-  <script>
-    // Navigation Logic
-    function showPage(pageName) {
-      // Hide all pages
-      document.querySelectorAll('.page-view').forEach(page => {
-        page.classList.remove('active');
-      });
-      
-      // Show selected page
-      const pageId = pageName + 'Page';
-      const pageElement = document.getElementById(pageId);
-      if (pageElement) {
-        pageElement.classList.add('active');
-      }
-      
-      // Update nav buttons
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.page === pageName) {
-          btn.classList.add('active');
-        }
-      });
-      
-      // Scroll to top
-      globalThis.scrollTo(0, 0);
-    }
+<div id="langBar" class="lang-bar hidden"></div>
 
-    // Category cards click handler
-    document.querySelectorAll('.category-card').forEach(card => {
-      card.addEventListener('click', function() {
-        const page = this.dataset.page;
-        showPage(page);
-      });
-    });
+<main id="app" class="app"></main>
 
-    // Nav bar click handler
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const page = this.dataset.page;
-        showPage(page);
-      });
-    });
+<div class="nav-bar">
+  <button class="nav-btn" data-page="home"></button>
+  <button class="nav-btn" data-page="partners"></button>
+  <button class="nav-btn" data-page="qr"></button>
+  <button class="nav-btn" data-page="profile"></button>
+</div>
 
-    // Initialize
-    globalThis.addEventListener('DOMContentLoaded', function() {
-      showPage('home');
-    });
-  </script>
-
+<script src="utils.js"></script>
+<script src="userState.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,8 +1,23 @@
-// userState.js
-let userState = loadProfiles();
-let currentScreen = "home";
-let currentScreenPayload = null;
+function defaultUserState() {
+  return {
+    coins: 100,
+    activePassId: null,
+    pendingPurchaseId: null,
+    pendingValidation: null,
+    redemptions: [],
+    reviews: [],
+    badges: []
+  };
+}
 
-function ensureDoodles() {
-  if(!userState.doodles) userState.doodles = [];
+function loadUserState() {
+  try {
+    return { ...defaultUserState(), ...JSON.parse(localStorage.getItem("userState")) };
+  } catch {
+    return defaultUserState();
+  }
+}
+
+function saveUserState(state) {
+  localStorage.setItem("userState", JSON.stringify(state));
 }
